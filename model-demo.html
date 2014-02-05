@@ -20,6 +20,7 @@
     <h2>State {{name}}</h2>
     <a class='destroy'>Remove</a>
     {{> tasks}}
+    {{> users}}
   </div>
 </template>
 
@@ -48,6 +49,27 @@
 <template name='new_task'>
   <form class='create' model='Task'>
     <input name='title' placeholder='Task'>
+    <button type='submit'>Add</button>
+  </form>
+</template>  
+
+<template name='users'>
+  {{> new_user}}
+  {{#each collection}}
+  {{> user}}
+  {{/each}}
+</template>
+
+<template name='user'>
+  <div class='user' id='{{_id}}'>
+    <h3>{{u_name}}</h3>
+    <a class='destroy'>Remove</a>
+  </div>
+</template>
+
+<template name='new_user'>
+  <form class='create' model='User'>
+    <input name='u_name' placeholder='User'>
     <button type='submit'>Add</button>
   </form>
 </template>
